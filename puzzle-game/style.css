@@ -2,7 +2,7 @@
     --bg-color: #1a1a1a;
     --text-color: #f0f0f0;
     --grid-gap: 2px;
-    --grid-size: 400px;
+    --grid-size: min(400px, 90vw);
     --tile-count: 4;
     --tile-size: calc((var(--grid-size) - ((var(--tile-count) - 1) * var(--grid-gap))) / var(--tile-count));
     --btn-color: #10b981;
@@ -89,6 +89,7 @@ h1 {
     transition: transform 0.2s ease-in-out;
     user-select: none;
     position: relative;
+    touch-action: manipulation;
 }
 
 .tile:hover:not(.empty) {
@@ -245,4 +246,26 @@ h1 {
     pointer-events: none;
     z-index: 51;
     /* Above win message */
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .game-info {
+        width: 90vw;
+        gap: 5px;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .moves {
+        font-size: 1rem;
+        min-width: 60px;
+    }
 }
